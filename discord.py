@@ -32,7 +32,6 @@ async def on_ready():
 @client.event
 async def on_message(message):
 	if message.content.startswith("aww"):
-		# await message.channel.send("aww")
 		res = requests.get('https://oauth.reddit.com/r/aww/random', headers=headers)
 		image_url = res.json()[0]['data']['children'][0]['data']['url']
 		await message.channel.send(image_url)
